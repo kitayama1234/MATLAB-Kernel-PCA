@@ -12,8 +12,8 @@ Run demo.m with KernelPca.m and data.mat.
 
 ![original data](https://github.com/kitayama1234/MATLAB-Kernel-PCA/blob/master/image1.jpg)
 
-⇓ fit a kernel pca model with the training data
-⇓ project the train data by using the pca model
+⇓ fit a kernel pca model with the training data  
+⇓ project the train data by using the pca model  
 ⇓ project the test data as well
 
 ![gaussian pca](https://github.com/kitayama1234/MATLAB-Kernel-PCA/blob/master/image2.jpg)
