@@ -10,7 +10,7 @@ figure
 hold on
 gscatter(X(:, 1), X(:, 2), Y)
 plot(Xtest(:, 1), Xtest(:, 2), 'LineStyle', 'none', 'Marker', '>')
-legend(["train data class1", "train data class2", "train data class3", "train data class4", "test data"])
+legend(["X (class1)", "X (class2)", "X (class3)", "X (class4)", "Xtest"])
 title('original data')
 
 
@@ -39,5 +39,5 @@ plot(projected_Xtest(:, 1), projected_Xtest(:, 2), 'LineStyle', 'none', 'Marker'
 title('pca with gaussian kernel')
 xlabel('principal dim')
 ylabel('second dim')
-legend(["train data class1", "train data class2", "train data class3", "train data class4", "test data"])
+legend(["X (class1)", "X (class2)", "X (class3)", "X (class4)", "Xtest"])
 
