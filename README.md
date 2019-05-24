@@ -13,11 +13,11 @@ Run demo.m with KernelPca.m and data.mat.
 
 ![original data](https://github.com/kitayama1234/MATLAB-Kernel-PCA/blob/master/image1.jpg)
 
-↓
-kpca = KernelPca(X, 'gaussian', 'gamma', 2.5, 'AutoScale', true);
-projected_X = project(kpca, X, 2);
-projected_Xtest = project(kpca, Xtest, 2);
-↓
+↓  
+kpca = KernelPca(X, 'gaussian', 'gamma', 2.5, 'AutoScale', true);  
+projected_X = project(kpca, X, 2);  
+projected_Xtest = project(kpca, Xtest, 2);  
+↓  
 
 ![gaussian pca](https://github.com/kitayama1234/MATLAB-Kernel-PCA/blob/master/image2.jpg)
 
