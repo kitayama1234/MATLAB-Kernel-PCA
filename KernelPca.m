@@ -32,6 +32,10 @@ classdef KernelPca < handle
     %                      its standard deviation (reccomended).
     %                      default:false
     %
+    %        ---- Output Auguments ----
+    %               kpca - trained kernel pca model.
+    %                      new data can be projected by this.
+    %
     %
     % projected_data = project(kpca, data, dim)
     %
