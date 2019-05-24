@@ -1,5 +1,5 @@
 %
-% test code of three kinds of kernel pca using KernelPca class
+% test code of a gaussian kernel pca using KernelPca.m
 %
 
 
@@ -14,23 +14,17 @@ legend(["train data class1", "train data class2", "train data class3", "train da
 title('original data')
 
 
-% make an instance of the KernelPca class----------------------------------
-kpca = KernelPca();
-
-
-
 % gaussian kernel pca------------------------------------------------------
 
-% set the hyper parameter of gaussian kernel function
-kpca.kernel_params.gamma = 0.0001;
+% fit pca model and get the coefficient for projection with dataset 'X'
+% setting 'AutoScale' true is highly reccomended (default:false)
+kpca = KernelPca(X, 'gaussian', 'gamma', 2.5, 'AutoScale', true);
 
-% fit pca and get the coefficient for projection with dataset 'X'
-fit_pca(kpca, X, "gaussian");
-
-% set the subspace dimention number M of projected data 
-% (M <= D, where D is the dimention of the original data),
-% and project the train data 'X' into the subspace by using the coefficient
+% set the subspace dimention number M of projected data
+% (M <= D, where D is the dimention of the original data)
 M = 2;
+
+% project the train data 'X' into the subspace by using the coefficient
 projected_X = project(kpca, X, M);
 
 % project the test data 'Xtest' as well
