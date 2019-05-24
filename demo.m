@@ -39,5 +39,5 @@ plot(projected_Xtest(:, 1), projected_Xtest(:, 2), 'LineStyle', 'none', 'Marker'
 title('pca with gaussian kernel')
 xlabel('principal dim')
 ylabel('second dim')
-legend(["X (class1)", "X (class2)", "X (class3)", "X (class4)", "Xtest"])
+legend(["projected X (class1)", "projected X (class2)", "projected X (class3)", "projected X (class4)", "projected Xtest"])
 
