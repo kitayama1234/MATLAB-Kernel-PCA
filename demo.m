@@ -1,5 +1,5 @@
 %
-% test code of a gaussian kernel pca using KernelPca.m
+% demo1: gaussian kernel pca using KernelPca.m
 %
 
 
@@ -17,7 +17,7 @@ title('original data')
 % gaussian kernel pca------------------------------------------------------
 
 % fit pca model and get the coefficient for projection with dataset 'X'
-% setting 'AutoScale' true is highly reccomended (default:false)
+% setting 'AutoScale' true is reccomended (default:false)
 kpca = KernelPca(X, 'gaussian', 'gamma', 2.5, 'AutoScale', true);
 
 % set the subspace dimention number M of projected data
