@@ -2,10 +2,10 @@
 ====
 
 ## Overview
-KernelPca.m is a MATLAB class file that enables you to do the following two things with a very short code.
-1. fitting a kernel pca model with training data with three kernel functions(gaussian, polynomial, linear)(demo.m)  
-1. projection of new data with the fitted pca model(demo.m)  
-1. confirming the contribution ratio(demo2.m)
+KernelPca.m is a MATLAB class file that enables you to do the following three things with a very short code.
+1. fitting a kernel pca model with training data with three kernel functions(gaussian, polynomial, linear) (demo.m)  
+1. projection of new data with the fitted pca model (demo.m)  
+1. confirming the contribution ratio (demo2.m)
 
 Enjoy it!
 
