@@ -1,10 +1,8 @@
 classdef KernelPca < handle
-    % Kernel pca with three types of kernel function: linear, gaussian,
+    % Kernel pca with three types of kernel function: linear(*1), gaussian,
     % and polynomial.
     % Optional pre-processing.
     % New data projection without re-training the model.
-    % * Note that linear kernel is corresponding to the normal pca, but
-    %   the internal algorithm is different from it.
     % 
     % ------------------------------Methods--------------------------------
     %
@@ -20,7 +18,7 @@ classdef KernelPca < handle
     %             kernel - type of kernel function specified as char.
     %                     ('linear', 'gaussian', or 'polynomial').
     %
-    %        ---- Name-Value Pair Input Auguments (*1) ----
+    %        ---- Name-Value Pair Input Auguments (*2) ----
     %            'gamma' - hyper parameter of gaussian kernel
     %                      default:2
     %                'r' - hyper parameter of polynomial kernel
@@ -29,11 +27,11 @@ classdef KernelPca < handle
     %                      default:2
     %        'AutoScale' - flag for auto scaling
     %                      if this is true, each variable is scaled using 
-    %                      its standard deviation (reccomended).
+    %                      its standard deviation.
     %                      default:false
     %
     %        ---- Output Auguments ----
-    %               kpca - trained kernel pca model.
+    %               kpca - trained kernel pca model as a KernelPca class.
     %                      new data can be projected by this.
     %
     %
@@ -44,6 +42,7 @@ classdef KernelPca < handle
     %        kernel pca model.
     %
     %        ---- Requied Input Auguments ----
+    %        kpca - trained kernel pca model as a KernelPca class.
     %        data - low vector dataset.
     %         dim - subspace dimention number of the projected data
     %               (dim<D, where D is the original dimention number of 
@@ -52,15 +51,26 @@ classdef KernelPca < handle
     %        ---- Output Auguments ----
     %        projected_data - projected low vector dataset.
     %
-    % set_compact(kpca)
+    % set_compact(kpca, Value)
     % 
     %        ---- Description ----
     %        set the instance compact by releasing some properties
     %        not used for projection.
+    %
+    %        ---- Requied Input Auguments ----
+    %            kpca - trained kernel pca model as a KernelPca class.
+    %
+    %        ---- Name-Value Pair Input Auguments (*2) ----
+    %        'MaxDim' - max number of the subspace dimention specified as
+    %                   an integer.
+    %                   If you specify this, unnecessary part of the 
+    %                   coefficient is released.
     %        
     %
     % ---------------------------------------------------------------------
-    % (*1)Specify optional comma-separated pairs of Name,Value arguments. 
+    % (*1) Note that linear kernel is corresponding to the normal pca, but
+    % the internal algorithm is different from it.
+    % (*2) Specify optional comma-separated pairs of Name,Value arguments. 
     % Name is the argument name and Value is the corresponding value. 
     % Name must appear inside quotes. You can specify several name and 
     % value pair arguments in any order as Name1,Value1,...,NameN,ValueN.
@@ -76,6 +86,7 @@ classdef KernelPca < handle
         centered_train_data = [];
         train_data_num = 0;
         train_gram_matrix = [];
+        contribution_ratio
         coeff = [];
 
         kernel_params
@@ -148,13 +159,24 @@ classdef KernelPca < handle
                 - self.train_gram_matrix * LN ...
                 + LN * self.train_gram_matrix * LN;
             [V, D] = eig(C);
-            [~, ind] = sort(diag(D), 'descend');
+            [D, ind] = sort(diag(D), 'descend');
+            D = abs(D);
+            self.contribution_ratio = D / sum(D);
             self.coeff = V(:, ind);
         end
         
         
         function projected = project(self, data, dim)
             % project a data to subspace using the coefficient
+            
+            % checking input auguments
+            p = inputParser;
+            p.PartialMatching = false;
+            validationNum = @(x) isnumeric(x);
+            addRequired(p, 'data', validationNum)
+            validationN = @(x) (x == floor(x)) || (x > 0);
+            addRequired(p, 'dim', validationN)
+            parse(p, data, dim);
             
             %subspace coefficient
             subspace_coeff = self.coeff(:, 1:dim);
@@ -171,8 +193,20 @@ classdef KernelPca < handle
             projected = transpose(subspace_coeff' * K);
         end
         
-        function set_compact(self)
+        function set_compact(self, varargin)
             % release the properties that are not used for projection
+            
+            % checking input auguments
+            p = inputParser;
+            p.PartialMatching = false;
+            validationN = @(x) (x == floor(x)) || (x > 0);
+            addParameter(p, 'MaxDim', validationN);
+            parse(p, varargin{:});
+%             fit_params = p.Results;
+            
+            if isnumeric(p.Results.MaxDim)
+                self.coeff = self.coeff(:, 1:p.Results.MaxDim);
+            end
             
             self.train_data = [];
             self.train_gram_matrix = [];
