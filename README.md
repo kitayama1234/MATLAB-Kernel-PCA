@@ -43,7 +43,7 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 
 # Description
 
-- Kernel pca with three types of kernel function: linear(*1), gaussian, and polynomial.
+- Kernel pca with three types of kernel function: linear\[^1], gaussian, and polynomial.
 - Optional pre-processing.
 - New data projection without re-training the model.
 
@@ -63,7 +63,7 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 > type of the kernel function specified as char.
 > ('linear', 'gaussian', or 'polynomial').
 
-#### Name-Value Pair Input Auguments[^2]
+#### Name-Value Pair Input Auguments\[^2]
 
 - `gamma`
 > hyper parameter of gaussian kernel.
@@ -113,7 +113,7 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 - `kpca`
 > trained kernel pca model as a KernelPca class.
 
-#### Name-Value Pair Input Auguments[^2]
+#### Name-Value Pair Input Auguments\[^2]
 
 - `MaxDim`
 > max number of the subspace dimention specified as an integer.
@@ -123,9 +123,9 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 
 
 
-[^1]: Note that linear kernel is corresponding to the normal pca, but the internal algorithm is different from it.
+\[^1]: Note that linear kernel is corresponding to the normal pca, but the internal algorithm is different from it.
 
-[^2]: Specify optional comma-separated pairs of Name,Value arguments. Name is the argument name and Value is the corresponding value. Name must appear inside quotes. You can specify several name and value pair arguments in any order as Name1,Value1,...,NameN,ValueN.
+\[^2]: Specify optional comma-separated pairs of Name,Value arguments. Name is the argument name and Value is the corresponding value. Name must appear inside quotes. You can specify several name and value pair arguments in any order as Name1,Value1,...,NameN,ValueN.
 
 
 # Requirement
