@@ -1,7 +1,7 @@
 ﻿MATLAB Kernel PCA: PCA with training data , projection of new data 
 ====
 
-## Overview
+# Overview
 KernelPca.m is a MATLAB class file that enables you to do the following three things with a very short code.
 1. fitting a kernel pca model with training data with three kernel functions(gaussian, polynomial, linear) (demo.m)  
 1. projection of new data with the fitted pca model (demo.m)  
@@ -9,8 +9,8 @@ KernelPca.m is a MATLAB class file that enables you to do the following three th
 
 Enjoy it!
 
-## Demos
-### demo.m
+# Demos
+## demo.m
 
 ![original data](https://github.com/kitayama1234/MATLAB-Kernel-PCA/blob/master/image1.jpg)
 
@@ -26,7 +26,7 @@ projected_Xtest = project(kpca, Xtest, 2);
 
 ![gaussian pca](https://github.com/kitayama1234/MATLAB-Kernel-PCA/blob/master/image2.jpg)
 
-### demo2.m
+## demo2.m
 
 ```matlab
 load fisheriris
@@ -41,17 +41,14 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 
 
 
-## Description
+# Description
 
 ## Methods
 
 `kpca = KernelPca(train_data, kernel, Value)`
+> Making a kernel model using train_data
 
-# Description
-
-Making a kernel model using train_data
-
-# Required Input Auguments
+### Required Input Auguments
   - `train_data`
 > low vector dataset (size:N-by-D, where N is the number of vectors and D is the dimention of the vectors).
   - `kernel`
@@ -74,10 +71,7 @@ Making a kernel model using train_data
 > default:false
 
 `projected_data = project(kpca, data, dim)`
-
-# Description
-
-Projecting the data to subspace by using kpca that is a fitted kernel pca model.
+> Projecting the data to subspace by using kpca that is a fitted kernel pca model.
 
 
 
