@@ -45,6 +45,8 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 
 ## Methods
 
+***
+
 `kpca = KernelPca(train_data, kernel, Value)`
 > Making a kernel pca model using train_data
 
@@ -76,6 +78,8 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 > If this is true, each variable is scaled using its standard deviation.
 > default:false
 
+***
+
 `projected_data = project(kpca, data, dim)`
 > Projecting the data to subspace by using kpca that is a fitted kernel pca model.
 
@@ -84,10 +88,14 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 
 
 
-## Requirement
+
+[^1]: Specify optional comma-separated pairs of Name,Value arguments. Name is the argument name and Value is the corresponding value. Name must appear inside quotes. You can specify several name and value pair arguments in any order as Name1,Value1,...,NameN,ValueN.
+
+
+# Requirement
 This code was written in the environment of MATLAB R2017a - academic use
 
-## Author
+# Author
 Masaki Kitayama
 
 
