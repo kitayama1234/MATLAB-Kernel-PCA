@@ -56,31 +56,36 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 
 #### Required Input Auguments
 
-- `train_data`
-> low vector dataset (size:N-by-D, where N is the number of vectors and D is the dimention of the vectors).
-
-- `kernel`
-> type of the kernel function specified as char.
-> ('linear', 'gaussian', or 'polynomial').
+>- `train_data`
+>> low vector dataset (size:N-by-D, where N is the number of vectors and D is the dimention of the vectors).
+>
+>- `kernel`
+>> type of the kernel function specified as char.
+>> ('linear', 'gaussian', or 'polynomial').
 
 #### Name-Value Pair Input Auguments\[^2]
 
-- `gamma`
-> hyper parameter of gaussian kernel.
-> default:2
+>- `gamma`
+>> hyper parameter of gaussian kernel.
+>> default:2
+>
+>- `r`
+>> hyper parameter of polynomial kernel.
+>> default:1
+>
+>- `d`
+>> hyper parameter of polynomial kernel.
+>> default:2
+>
+>- `AutoScale`
+>> flag for auto scaling.
+>> If this is true, each variable is scaled using its standard deviation.
+>> default:false
 
-- `r`
-> hyper parameter of polynomial kernel.
-> default:1
+#### Output Auguments
 
-- `d`
-> hyper parameter of polynomial kernel.
-> default:2
-
-- `AutoScale`
-> flag for auto scaling.
-> If this is true, each variable is scaled using its standard deviation.
-> default:false
+>- `kpca`
+>> trained kernel pca model as a KernelPca class. New data can be projected by this.
 
 ***
 
@@ -89,19 +94,19 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 
 #### Required Input Auguments
 
-- `kpca`
-> trained kernel pca model as a KernelPca class.
-
-- `data`
-> low vector dataset.
-
-- `dim`
-> subspace dimention number of the projected data (dim<D, where D is the original dimention number of input data)
+>- `kpca`
+>> trained kernel pca model as a KernelPca class.
+>
+>- `data`
+>> low vector dataset.
+>
+>- `dim`
+>> subspace dimention number of the projected data (dim<D, where D is the original dimention number of input data)
 
 #### Output Auguments
 
-- `projected_data`
-> projected low vector dataset.
+>- `projected_data`
+>> projected low vector dataset.
 
 ***
 
@@ -110,16 +115,16 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 
 #### Required Input Auguments
 
-- `kpca`
-> trained kernel pca model as a KernelPca class.
+>- `kpca`
+>> trained kernel pca model as a KernelPca class.
 
 #### Name-Value Pair Input Auguments\[^2]
 
-- `MaxDim`
-> max number of the subspace dimention specified as an integer.
-> If you specify this, unnecessary part of the coefficient is released.
+>- `MaxDim`
+>> max number of the subspace dimention specified as an integer.
+>> If you specify this, unnecessary part of the coefficient is released.
 
-
+***
 
 
 
