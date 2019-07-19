@@ -9,7 +9,7 @@ classdef KernelPca < handle
     % kpca = KernelPca(train_data, kernel, Value)
     %
     %        ---- Description ----
-    %        Make a kernel model using train_data
+    %        Making a kernel pca model using train_data
     %        
     %        ---- Requied Input Auguments ----
     %         train_data - low vector dataset (size:N-by-D, where N is the
@@ -202,7 +202,6 @@ classdef KernelPca < handle
             validationN = @(x) (x == floor(x)) || (x > 0);
             addParameter(p, 'MaxDim', validationN);
             parse(p, varargin{:});
-%             fit_params = p.Results;
             
             if isnumeric(p.Results.MaxDim)
                 self.coeff = self.coeff(:, 1:p.Results.MaxDim);

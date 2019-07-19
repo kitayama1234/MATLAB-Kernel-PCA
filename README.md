@@ -43,23 +43,27 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 
 # Description
 
+- Kernel pca with three types of kernel function: linear(*1), gaussian, and polynomial.
+- Optional pre-processing.
+- New data projection without re-training the model.
+
 ## Methods
 
 ***
 
-`kpca = KernelPca(train_data, kernel, Value)`
-> Making a kernel pca model using train_data
+### `kpca = KernelPca(train_data, kernel, Value)`
+> Making a kernel pca model (an instance of `KernelPca` class) using `train_data`
 
-### Required Input Auguments
+#### Required Input Auguments
 
 - `train_data`
 > low vector dataset (size:N-by-D, where N is the number of vectors and D is the dimention of the vectors).
 
 - `kernel`
-> type of kernel function specified as char.
+> type of the kernel function specified as char.
 > ('linear', 'gaussian', or 'polynomial').
 
-#### Name-Value Pair Input Auguments [^1]
+#### Name-Value Pair Input Auguments[^2]
 
 - `gamma`
 > hyper parameter of gaussian kernel.
@@ -80,16 +84,48 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 
 ***
 
-`projected_data = project(kpca, data, dim)`
+### `projected_data = project(kpca, data, dim)`
 > Projecting the data to subspace by using kpca that is a fitted kernel pca model.
 
+#### Required Input Auguments
+
+- `kpca`
+> trained kernel pca model as a KernelPca class.
+
+- `data`
+> low vector dataset.
+
+- `dim`
+> subspace dimention number of the projected data (dim<D, where D is the original dimention number of input data)
+
+#### Output Auguments
+
+- `projected_data`
+> projected low vector dataset.
+
+***
+
+### `set_compact(kpca, Value)`
+> Setting the instance compact by releasing some properties not used for projection.
+
+#### Required Input Auguments
+
+- `kpca`
+> trained kernel pca model as a KernelPca class.
+
+#### Name-Value Pair Input Auguments[^2]
+
+- `MaxDim`
+> max number of the subspace dimention specified as an integer.
+> If you specify this, unnecessary part of the coefficient is released.
 
 
 
 
 
+[^1]: Note that linear kernel is corresponding to the normal pca, but the internal algorithm is different from it.
 
-[^1]: Specify optional comma-separated pairs of Name,Value arguments. Name is the argument name and Value is the corresponding value. Name must appear inside quotes. You can specify several name and value pair arguments in any order as Name1,Value1,...,NameN,ValueN.
+[^2]: Specify optional comma-separated pairs of Name,Value arguments. Name is the argument name and Value is the corresponding value. Name must appear inside quotes. You can specify several name and value pair arguments in any order as Name1,Value1,...,NameN,ValueN.
 
 
 # Requirement
