@@ -46,26 +46,32 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 ## Methods
 
 `kpca = KernelPca(train_data, kernel, Value)`
-> Making a kernel model using train_data
+> Making a kernel pca model using train_data
 
 ### Required Input Auguments
-  - `train_data`
+
+- `train_data`
 > low vector dataset (size:N-by-D, where N is the number of vectors and D is the dimention of the vectors).
-  - `kernel`
+
+- `kernel`
 > type of kernel function specified as char.
 > ('linear', 'gaussian', or 'polynomial').
 
-- Name-Value Pair Input Auguments [^1]
-  - `gamma`
+#### Name-Value Pair Input Auguments [^1]
+
+- `gamma`
 > hyper parameter of gaussian kernel.
 > default:2
-  - `r`
+
+- `r`
 > hyper parameter of polynomial kernel.
 > default:1
-  - `d`
+
+- `d`
 > hyper parameter of polynomial kernel.
 > default:2
-  - `AutoScale`
+
+- `AutoScale`
 > flag for auto scaling.
 > If this is true, each variable is scaled using its standard deviation.
 > default:false
