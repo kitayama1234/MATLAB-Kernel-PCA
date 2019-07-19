@@ -36,44 +36,46 @@ linear_kpca = KernelPca(meas, 'linear');
 
 ```matlab
 plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
-![contribution ratio](https://github.com/kitayama1234/MATLAB-Kernel-PCA/blob/master/image3.jpg)
 ```
+![contribution ratio](https://github.com/kitayama1234/MATLAB-Kernel-PCA/blob/master/image3.jpg)
+
+
 
 ## Description
 
 ## Methods
 
-# `kpca = KernelPca(train_data, kernel, Value)`
+`kpca = KernelPca(train_data, kernel, Value)`
 
-- **Description**
+# Description
 
 Making a kernel model using train_data
 
-- Required Input Auguments
- - `train_data`
+# Required Input Auguments
+  - `train_data`
 > low vector dataset (size:N-by-D, where N is the number of vectors and D is the dimention of the vectors).
- - `kernel`
+  - `kernel`
 > type of kernel function specified as char.
 > ('linear', 'gaussian', or 'polynomial').
 
 - Name-Value Pair Input Auguments [^1]
- - `gamma`
+  - `gamma`
 > hyper parameter of gaussian kernel.
 > default:2
- - `r`
+  - `r`
 > hyper parameter of polynomial kernel.
 > default:1
- - `d`
+  - `d`
 > hyper parameter of polynomial kernel.
 > default:2
- - `AutoScale`
+  - `AutoScale`
 > flag for auto scaling.
 > If this is true, each variable is scaled using its standard deviation.
 > default:false
 
-# `projected_data = project(kpca, data, dim)`
+`projected_data = project(kpca, data, dim)`
 
-- **Description**
+# Description
 
 Projecting the data to subspace by using kpca that is a fitted kernel pca model.
 
