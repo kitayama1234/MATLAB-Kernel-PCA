@@ -11,14 +11,14 @@ classdef KernelPca < handle
     %        ---- Description ----
     %        Making a kernel pca model using train_data
     %        
-    %        ---- Requied Input Auguments ----
+    %        ---- Requied Input Arguments ----
     %         train_data - low vector dataset (size:N-by-D, where N is the
     %                     number of vectors and D is the dimention of 
     %                     the vectors).
     %             kernel - type of kernel function specified as char.
     %                     ('linear', 'gaussian', or 'polynomial').
     %
-    %        ---- Name-Value Pair Input Auguments (*2) ----
+    %        ---- Name-Value Pair Input Arguments (*2) ----
     %            'gamma' - hyper parameter of gaussian kernel
     %                      default:2
     %                'r' - hyper parameter of polynomial kernel
@@ -30,7 +30,7 @@ classdef KernelPca < handle
     %                      its standard deviation.
     %                      default:false
     %
-    %        ---- Output Auguments ----
+    %        ---- Output Arguments ----
     %               kpca - trained kernel pca model as a KernelPca class.
     %                      new data can be projected by this.
     %
@@ -41,14 +41,14 @@ classdef KernelPca < handle
     %        project the data to subspace by using kpca that is a fitted
     %        kernel pca model.
     %
-    %        ---- Requied Input Auguments ----
+    %        ---- Requied Input Arguments ----
     %        kpca - trained kernel pca model as a KernelPca class.
     %        data - low vector dataset.
     %         dim - subspace dimention number of the projected data
     %               (dim<D, where D is the original dimention number of 
     %               input data)
     %
-    %        ---- Output Auguments ----
+    %        ---- Output Arguments ----
     %        projected_data - projected low vector dataset.
     %
     % set_compact(kpca, Value)
@@ -57,10 +57,10 @@ classdef KernelPca < handle
     %        set the instance compact by releasing some properties
     %        not used for projection.
     %
-    %        ---- Requied Input Auguments ----
+    %        ---- Requied Input Arguments ----
     %            kpca - trained kernel pca model as a KernelPca class.
     %
-    %        ---- Name-Value Pair Input Auguments (*2) ----
+    %        ---- Name-Value Pair Input Arguments (*2) ----
     %        'MaxDim' - max number of the subspace dimention specified as
     %                   an integer.
     %                   If you specify this, unnecessary part of the 

@@ -54,7 +54,7 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 ### `kpca = KernelPca(train_data, kernel, Value)`
 > Making a kernel pca model (an instance of `KernelPca` class) using `train_data`
 
-#### Required Input Auguments
+#### Required Input Arguments
 
 >- `train_data`
 >> low vector dataset (size:N-by-D, where N is the number of vectors and D is the dimention of the vectors).
@@ -63,7 +63,7 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 >> type of the kernel function specified as char.
 >> ('linear', 'gaussian', or 'polynomial').
 
-#### Name-Value Pair Input Auguments\[^2]
+#### Name-Value Pair Input Arguments\[^2]
 
 >- `gamma`
 >> hyper parameter of gaussian kernel.
@@ -82,7 +82,7 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 >> If this is true, each variable is scaled using its standard deviation.
 >> default:false
 
-#### Output Auguments
+#### Output Arguments
 
 >- `kpca`
 >> trained kernel pca model as a KernelPca class. New data can be projected by this.
@@ -92,7 +92,7 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 ### `projected_data = project(kpca, data, dim)`
 > Projecting the data to subspace by using kpca that is a fitted kernel pca model.
 
-#### Required Input Auguments
+#### Required Input Arguments
 
 >- `kpca`
 >> trained kernel pca model as a KernelPca class.
@@ -103,7 +103,7 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 >- `dim`
 >> subspace dimention number of the projected data (dim<D, where D is the original dimention number of input data)
 
-#### Output Auguments
+#### Output Arguments
 
 >- `projected_data`
 >> projected low vector dataset.
@@ -113,12 +113,12 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 ### `set_compact(kpca, Value)`
 > Setting the instance compact by releasing some properties not used for projection.
 
-#### Required Input Auguments
+#### Required Input Arguments
 
 >- `kpca`
 >> trained kernel pca model as a KernelPca class.
 
-#### Name-Value Pair Input Auguments\[^2]
+#### Name-Value Pair Input Arguments\[^2]
 
 >- `MaxDim`
 >> max number of the subspace dimention specified as an integer.
