@@ -111,7 +111,7 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 ***
 
 ### `set_compact(kpca, Value)`
-> Setting the instance compact by releasing some properties not used for projection.
+> Setting a fitted instance compact by releasing some properties not used for projection.
 
 #### Required Input Arguments
 

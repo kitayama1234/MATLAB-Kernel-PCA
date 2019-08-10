@@ -16,7 +16,7 @@ classdef KernelPca < handle
     %                     number of vectors and D is the dimention of 
     %                     the vectors).
     %             kernel - type of kernel function specified as char.
-    %                     ('linear', 'gaussian', or 'polynomial').
+    %                     ('linear', 'gaussian', or 'poly').
     %
     %        ---- Name-Value Pair Input Arguments (*2) ----
     %            'gamma' - hyper parameter of gaussian kernel
@@ -107,7 +107,7 @@ classdef KernelPca < handle
             p.PartialMatching = false;
             validationNum = @(x) isnumeric(x);
             addRequired(p, 'train_data', validationNum)
-            validationFcn1 = @(x) ischar(x) && (strcmp(x, 'gaussian') || strcmp(x, 'poly') || strcmp(x, 'linear'));
+            validationFcn1 = @(x) ischar(x) && (strcmp(x, 'gaussian') || strcmp(x, 'polynomial') || strcmp(x, 'linear'));
             addRequired(p, 'kernel', validationFcn1);
             addParameter(p, 'gamma', validationNum);
             addParameter(p, 'r', validationNum);
@@ -222,7 +222,7 @@ function K = kr(vector1, vector2, kernel, kernel_params)
         for i = 1:size(vector1, 2)
             K(i, :) = exp(-kernel_params.gamma .* sqrt(sum((vector1(:, i) - vector2) .^ 2, 1) .^ 2));
         end
-    elseif kernel == "poly"
+    elseif kernel == "polynomial"
         K = (vector1' * vector2 + kernel_params.r) .^ kernel_params.d;
     elseif kernel == "linear"
         K = vector1' * vector2;
