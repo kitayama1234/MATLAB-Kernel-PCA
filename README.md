@@ -44,9 +44,9 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 # Description
 
 - Kernel pca with three types of kernel function: linear\[^1], gaussian, and polynomial.
- - linear kernel function : $K_r(\mbox{\boldmath $x$}_1,\mbox{\boldmath $x$}_2)=\mbox{\boldmath $x$}_1\cdot\mbox{\boldmath $x$}_2$
- - gaussian kernel function : $K_{g}(\mbox{\boldmath $x$}_1,\mbox{\boldmath $x$}_2)=\exp(-\gamma|\mbox{\boldmath $x$}_1-\mbox{\boldmath $x$}_2|^{2})$
- - polynomial kernel function : $K_{p}(\mbox{\boldmath $x$}_1,\mbox{\boldmath $x$}_2)=(\mbox{\boldmath $x$}_1\cdot\mbox{\boldmath $x$}_2+r)^d$
+ - linear kernel function : <img src="https://latex.codecogs.com/gif.latex?K_r(\mbox{\boldmath&space;$x$}_1,\mbox{\boldmath&space;$x$}_2)=\mbox{\boldmath&space;$x$}_1\cdot\mbox{\boldmath&space;$x$}_2">
+ - gaussian kernel function : <img src="https://latex.codecogs.com/gif.latex?K_{g}(\mbox{\boldmath&space;$x$}_1,\mbox{\boldmath&space;$x$}_2)=\exp(-\gamma|\mbox{\boldmath&space;$x$}_1-\mbox{\boldmath&space;$x$}_2|^{2})">
+ - polynomial kernel function : <img src="https://latex.codecogs.com/gif.latex?K_{p}(\mbox{\boldmath&space;$x$}_1,\mbox{\boldmath&space;$x$}_2)=(\mbox{\boldmath&space;$x$}_1\cdot\mbox{\boldmath&space;$x$}_2&plus;r)^d">
 - Optional pre-processing.
 - New data projection without re-training the model.
 
