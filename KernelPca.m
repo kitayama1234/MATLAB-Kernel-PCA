@@ -12,7 +12,7 @@ classdef KernelPca < handle
     %        Making a kernel pca model using train_data
     %        
     %        ---- Requied Input Arguments ----
-    %         train_data - low vector dataset (size:N-by-D, where N is the
+    %         train_data - row vector dataset (size:N-by-D, where N is the
     %                     number of vectors and D is the dimention of 
     %                     the vectors).
     %             kernel - type of kernel function specified as char.
@@ -43,13 +43,13 @@ classdef KernelPca < handle
     %
     %        ---- Requied Input Arguments ----
     %        kpca - trained kernel pca model as a KernelPca class.
-    %        data - low vector dataset.
+    %        data - row vector dataset.
     %         dim - subspace dimention number of the projected data
     %               (dim<D, where D is the original dimention number of 
     %               input data)
     %
     %        ---- Output Arguments ----
-    %        projected_data - projected low vector dataset.
+    %        projected_data - projected row vector dataset.
     %
     % set_compact(kpca, Value)
     % 

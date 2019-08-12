@@ -60,7 +60,7 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 #### Required Input Arguments
 
 >- `train_data`
->> low vector dataset (size:N-by-D, where N is the number of vectors and D is the dimention of the vectors).
+>> row vector dataset (size:N-by-D, where N is the number of vectors and D is the dimention of the vectors).
 >
 >- `kernel`
 >> type of the kernel function specified as char.
@@ -101,7 +101,7 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 >> trained kernel pca model as a KernelPca class.
 >
 >- `data`
->> low vector dataset.
+>> row vector dataset.
 >
 >- `dim`
 >> subspace dimention number of the projected data (dim<D, where D is the original dimention number of input data)
@@ -109,7 +109,7 @@ plot([1 2 3 4], linear_kpca.contribution_ratio(1:4));
 #### Output Arguments
 
 >- `projected_data`
->> projected low vector dataset.
+>> projected row vector dataset.
 
 ***
 
