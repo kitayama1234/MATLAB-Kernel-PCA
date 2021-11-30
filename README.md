@@ -7,8 +7,6 @@ KernelPca.m is a MATLAB class file that enables you to do the following three th
 1. projection of new data with the fitted pca model (demo.m)  
 1. confirming the contribution ratio (demo2.m)
 
-Enjoy it!
-
 # Demos
 ## demo.m
 
